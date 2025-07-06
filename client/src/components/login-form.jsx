@@ -13,7 +13,6 @@ import { useRouter, useSearchParams } from "next/navigation"
 import { useAuth } from "@/provider/AuthProvider"
 
 
-
 export default function LoginPage() {
   const router = useRouter()
   const { login } = useAuth()
@@ -95,10 +94,10 @@ export default function LoginPage() {
 
       <div className="w-full max-w-md relative z-10">
         {/* Login Form Card */}
-        <Card className="shadow-xl border-white/10 rounded-xl bg-[#0F0A31] backdrop-blur-sm">
+        <Card className="shadow-xl border-white/10 rounded-xl bg-[#0F0A31]/50 backdrop-blur-sm">
           <CardHeader className="pb-4">
             <CardTitle className="text-2xl font-bold text-center text-white">Login</CardTitle>
-            <CardDescription className="text-center text-[#EEE0FF]">
+            <CardDescription className="text-center text-[#EEE0FF]/80">
               Enter your credentials to access your account
             </CardDescription>
           </CardHeader>
@@ -114,7 +113,7 @@ export default function LoginPage() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
               {/* Email/Username */}
               <div className="space-y-2">
-                <Label htmlFor="email" className="text-sm font-medium text-[#EEE0FF]">
+                <Label htmlFor="email" className="text-sm font-medium text-[#EEE0FF]/80">
                   Email Address or Username *
                 </Label>
                 <Input
@@ -137,7 +136,7 @@ export default function LoginPage() {
 
               {/* Password */}
               <div className="space-y-2">
-                <Label htmlFor="password" className="text-sm font-medium text-[#EEE0FF]">
+                <Label htmlFor="password" className="text-sm font-medium text-[#EEE0FF]/80">
                   Password *
                 </Label>
                 <div className="relative">
@@ -167,6 +166,12 @@ export default function LoginPage() {
                 {errors.password && (
                   <p className="text-red-400 text-sm mt-1">{errors.password.message}</p>
                 )}
+                <Link 
+                  href="/forgot-password" 
+                  className="text-sm text-purple-300 hover:text-white hover:underline block text-right mt-1"
+                >
+                  Forgot password?
+                </Link>
               </div>
 
               {/* Submit Button */}
@@ -187,6 +192,17 @@ export default function LoginPage() {
             </form>
           </CardContent>
         </Card>
+
+        {/* Register Link */}
+        <p className="text-center text-sm text-[#EEE0FF]/80 mt-6">
+          Don't have an account?{" "}
+          <Link 
+            href="/register" 
+            className="text-purple-300 hover:text-white hover:underline font-medium"
+          >
+            Sign up
+          </Link>
+        </p>
       </div>
     </div>
   )

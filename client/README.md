@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Fuel Station Management System
 
-## Getting Started
+A comprehensive Next.js-based management system for fuel stations, providing tools for sales, credit management, inventory tracking, and financial reporting.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Sales Management
+- **POS System**: Point of sale interface for fuel transactions
+- **Shift Management**: Track employee shifts and work hours
+- **Daily Reports**: Generate and view daily sales reports
+
+### Credit Management
+- **Customer Management**: Manage customer accounts and information
+- **Invoice System**: Create and track customer invoices
+- **Dues Tracking**: Monitor outstanding payments and credit limits
+
+### Loan Management
+- **Payable Loans**: Track loans owed to vendors/suppliers
+- **Receivable Loans**: Manage loans given to customers
+- **Repayment Schedule**: Automated repayment tracking and scheduling
+
+### Inventory Management
+- **Fuel Stock**: Real-time fuel inventory tracking
+- **Expense Management**: Track operational expenses
+- **Vendor Management**: Manage supplier relationships and orders
+
+### Accounting
+- **Profit & Loss**: Generate P&L statements
+- **Balance Sheet**: Financial position reporting
+- **Financial Reports**: Comprehensive financial analytics
+
+### Admin Features
+- **User Management**: Role-based access control
+- **System Settings**: Configure application parameters
+- **Audit Logs**: Track system activities and changes
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Frontend**: React 19
+- **Styling**: Tailwind CSS 4
+- **UI Components**: Radix UI
+- **Icons**: Lucide React
+- **Forms**: React Hook Form
+- **HTTP Client**: Axios
+- **Package Manager**: Bun
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone <repository-url>
+   cd fuel-station-management/client
+   ```
+
+2. **Install dependencies**
+   ```bash
+   bun install
+   ```
+
+3. **Run the development server**
+   ```bash
+   bun dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 🏗️ Project Structure
+
+```
+src/
+├── app/
+│   ├── (auth)/          # Authentication routes
+│   │   ├── login/       # Login page
+│   │   └── layout.jsx   # Auth layout
+│   ├── (dashboard)/     # Dashboard routes
+│   │   ├── sales/       # Sales management
+│   │   │   └── pos/     # POS system
+│   │   └── layout.jsx   # Dashboard layout
+│   └── layout.jsx       # Root layout
+├── components/
+│   ├── ui/              # Reusable UI components
+│   ├── app-sidebar.jsx  # Main navigation sidebar
+│   └── login-form.jsx   # Login form component
+├── lib/
+│   ├── api.js           # API utilities
+│   ├── ProtectedRoute.js # Route protection
+│   └── utils.js         # Utility functions
+└── provider/
+    └── AuthProvider.jsx # Authentication context
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🚀 Available Scripts
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun start` - Start production server
+- `bun lint` - Run ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 Development
 
-## Learn More
+This project uses:
+- **ESLint** for code linting
+- **Tailwind CSS** for styling
+- **Radix UI** for accessible components
+- **React Hook Form** for form handling
 
-To learn more about Next.js, take a look at the following resources:
+## 📝 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is private and proprietary.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🤝 Contributing
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is a private project. Please contact the development team for contribution guidelines.
