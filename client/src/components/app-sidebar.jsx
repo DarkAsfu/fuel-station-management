@@ -15,7 +15,10 @@ import {
   Shield,
   Book,
   AlertCircle,
-  Zap
+  Zap,
+  Contact,
+  UserPlus,
+  Home
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -29,69 +32,92 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import { useAuth } from "@/provider/AuthProvider";
 
 // Sample data
 const data = {
-  user: {
-    name: "Station Admin",
-    email: "admin@fuelstation.com",
-    avatar: "/avatars/admin.jpg",
-  },
   navMain: [
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: Home,
+      items: [
+        { title: "Home", url: "/" },
+      ],
+    },
+    {
+      title: "Customer Management",
+      url: "/customers",
+      icon: Contact,
+      items: [
+        // { title: "Add Customer", url: "/customers/add", icon: UserPlus },
+        { title: "Customer List", url: "/customers/list" },
+      ],
+    },
     // {
-    //   title: "Dashboard",
-    //   url: "/dashboard",
-    //   icon: BarChart2,
-    //   isActive: true,
+    //   title: "Sales Management",
+    //   url: "/sales",
+    //   icon: CreditCard,
+    //   items: [
+    //     { title: "POS System", url: "/sales/pos" },
+    //     { title: "Shift Management", url: "/sales/shifts" },
+    //     { title: "Daily Reports", url: "/sales/reports" },
+    //   ],
+    // },
+    // {
+    //   title: "Credit Management",
+    //   url: "/credit",
+    //   icon: HandCoins,
+    //   items: [
+    //     { title: "Customers", url: "/credit/customers" },
+    //     { title: "Invoices", url: "/credit/invoices" },
+    //     { title: "Dues Tracking", url: "/credit/dues" },
+    //   ],
+    // },
+    // {
+    //   title: "Loan Management",
+    //   url: "/loans",
+    //   icon: Calculator,
+    //   items: [
+    //     { title: "Payable Loans", url: "/loans/payable" },
+    //     { title: "Receivable Loans", url: "/loans/receivable" },
+    //     { title: "Repayment Schedule", url: "/loans/schedule" },
+    //   ],
+    // },
+    // {
+    //   title: "Inventory",
+    //   url: "/inventory",
+    //   icon: Warehouse,
+    //   items: [
+    //     { title: "Fuel Stock", url: "/inventory/fuel" },
+    //     { title: "Expenses", url: "/inventory/expenses" },
+    //     { title: "Vendors", url: "/inventory/vendors" },
+    //   ],
+    // },
+    // {
+    //   title: "Accounting",
+    //   url: "/accounting",
+    //   icon: Book,
+    //   items: [
+    //     { title: "Profit & Loss", url: "/accounting/pnl" },
+    //     { title: "Balance Sheet", url: "/accounting/balance" },
+    //     { title: "Financial Reports", url: "/accounting/reports" },
+    //   ],
     // },
     {
-      title: "Sales Management",
-      url: "/sales",
-      icon: CreditCard,
+      title: "Shift Management",
+      url: "/shift-management",
+      icon: Clock,
       items: [
-        { title: "POS System", url: "/sales/pos" },
-        { title: "Shift Management", url: "/sales/shifts" },
-        { title: "Daily Reports", url: "/sales/reports" },
+        { title: "Shift List", url: "/shift-management" },
       ],
     },
     {
-      title: "Credit Management",
-      url: "/credit",
-      icon: HandCoins,
+      title: "System Configuration",
+      url: "/system-config",
+      icon: Shield,
       items: [
-        { title: "Customers", url: "/credit/customers" },
-        { title: "Invoices", url: "/credit/invoices" },
-        { title: "Dues Tracking", url: "/credit/dues" },
-      ],
-    },
-    {
-      title: "Loan Management",
-      url: "/loans",
-      icon: Calculator,
-      items: [
-        { title: "Payable Loans", url: "/loans/payable" },
-        { title: "Receivable Loans", url: "/loans/receivable" },
-        { title: "Repayment Schedule", url: "/loans/schedule" },
-      ],
-    },
-    {
-      title: "Inventory",
-      url: "/inventory",
-      icon: Warehouse,
-      items: [
-        { title: "Fuel Stock", url: "/inventory/fuel" },
-        { title: "Expenses", url: "/inventory/expenses" },
-        { title: "Vendors", url: "/inventory/vendors" },
-      ],
-    },
-    {
-      title: "Accounting",
-      url: "/accounting",
-      icon: Book,
-      items: [
-        { title: "Profit & Loss", url: "/accounting/pnl" },
-        { title: "Balance Sheet", url: "/accounting/balance" },
-        { title: "Financial Reports", url: "/accounting/reports" },
+        { title: "Dispenser Configuration", url: "/system-config/dispenser-configuration" },
       ],
     },
     {
@@ -107,12 +133,14 @@ const data = {
   ],
   quickActions: [
     { name: "New Sale", url: "/sales/pos/new", icon: Zap },
+    { name: "Add Customer", url: "/customers/add", icon: UserPlus },
     { name: "Alerts", url: "/alerts", icon: AlertCircle },
     { name: "Shift Clock", url: "/shift/clock", icon: Clock },
   ],
 };
 
 export function AppSidebar(props) {
+  const { user } = useAuth();
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -125,7 +153,7 @@ export function AppSidebar(props) {
         <NavProjects projects={data.quickActions} title="Quick Actions" />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={user} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

@@ -39,7 +39,7 @@ A comprehensive Next.js-based management system for fuel stations, providing too
 - **Framework**: Next.js 15 with App Router
 - **Frontend**: React 19
 - **Styling**: Tailwind CSS 4
-- **UI Components**: Radix UI
+- **UI Components**: Radix UI, Shadcn UI
 - **Icons**: Lucide React
 - **Forms**: React Hook Form
 - **HTTP Client**: Axios
